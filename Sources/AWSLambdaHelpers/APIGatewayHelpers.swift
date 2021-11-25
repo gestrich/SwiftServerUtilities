@@ -9,7 +9,7 @@ import Foundation
 import AWSLambdaEvents
 import NIO
 
-extension APIGateway.Request {
+public extension APIGateway.Request {
 
     func getBody<T: Decodable>(bodyType: T.Type) -> Result<T, Error> {
         
