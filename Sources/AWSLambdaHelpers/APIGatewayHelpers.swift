@@ -40,6 +40,18 @@ extension APIGateway.Request {
         }
     }
     
+    func bodyData() -> Data? {
+        guard let body = self.body else {
+            return nil
+        }
+        
+        guard let data = body.data(using: .utf8)  else {
+            return nil
+        }
+        
+        return data
+    }
+    
     func stringDictionary() -> [String: String]? {
         guard let body = self.body else {
             return nil
