@@ -32,6 +32,7 @@ let package = Package(
             dependencies: [
                 .product(name: "AWSLambdaRuntime", package: "swift-aws-lambda-runtime"),
                 .product(name: "AWSLambdaEvents", package: "swift-aws-lambda-runtime"),
+                .target(name: "NIOHelpers"),
             ]),
         .testTarget(
             name: "AWSLambdaHelpersTests",
