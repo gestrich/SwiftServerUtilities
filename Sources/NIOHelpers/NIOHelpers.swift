@@ -22,10 +22,11 @@ public extension EventLoopFuture {
                 switch result {
                 case .success(let val):
                     continuation.resume(returning: val)
+                    return self.eventLoop.makeSucceededFuture(result)
                 case .failure(let error):
                     continuation.resume(throwing: error)
+                    return self.eventLoop.makeFailedFuture(error)
                 }
-                return self.eventLoop.makeSucceededFuture(result)
             }
         }
     }
